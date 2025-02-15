@@ -18,7 +18,7 @@ public class Student {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
-    
+
     private Long id;
     private String name;
     private String email;
@@ -30,14 +30,23 @@ public class Student {
     public Student() {
     }
 
-    public Student(Long id, LocalDate dob, String email, String name) {
+    public Student(
+            Long id,
+            LocalDate dob,
+            String email,
+            String name
+    ) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
     }
 
-    public Student(String name, String email, LocalDate dob) {
+    public Student(
+            String name,
+            String email,
+            LocalDate dob
+    ) {
         this.name = name;
         this.email = email;
         this.dob = dob;
@@ -76,7 +85,8 @@ public class Student {
     }
 
     public Integer getAge() {
-        return Period.between(dob, LocalDate.now()).getYears();
+        return Period.between(dob, LocalDate.now())
+                .getYears();
 
     }
 
