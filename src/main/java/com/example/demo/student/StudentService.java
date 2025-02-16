@@ -1,5 +1,6 @@
 package com.example.demo.student;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,4 +40,25 @@ public class StudentService {
 
         studentRepository.deleteById(id);
     }
+
+    @Transactional
+    public void updateStudent(
+            Long id,
+            String name,
+            String email
+    ) {
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Student not found"));
+
+        if (name != null && !name.isEmpty() && !name.equals(student.getName())) {
+            student.setName(name);
+        }
+
+        if (email != null && !email.isEmpty() && !email.equals(student.getEmail())) {
+            student.setEmail(email);
+        }
+
+        studentRepository.updateStudent(student.getId(), student.getName(), student.getEmail());
+    }
+
 }

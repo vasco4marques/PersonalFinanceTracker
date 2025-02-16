@@ -31,5 +31,14 @@ public class StudentAPI {
         studentService.deleteStudent(id);
     }
 
+    @PutMapping(path = "edit/{studentId}")
+    public void updateStudent(
+            @PathVariable("studentId") Long id,
+            @RequestBody Student student
+    ) {
+        studentService.updateStudent(id, student.getName(), student.getEmail());
+        System.out.println(student.getEmail());
+    }
+
 
 }
