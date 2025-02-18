@@ -9,8 +9,8 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-@Configuration
-public class StudentConfig {
+//@Configuration
+//public class StudentConfig {
 
 //    @Bean
 //    CommandLineRunner commandLineRunner(StudentRepository studentRepository){
@@ -35,4 +35,4 @@ public class StudentConfig {
 //        };
 //    }
 
-}
+//}
